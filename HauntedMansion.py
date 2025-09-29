@@ -77,7 +77,7 @@ for t in range(3, -1, -1):
     print(f"{t}s")
     time.sleep(1)
 
-#Game loop
+#Game loop begins
 while game:
 
     status()
