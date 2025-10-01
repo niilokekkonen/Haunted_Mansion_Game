@@ -127,10 +127,31 @@ while game:
         if move[1] == "map":
             show_map()
 
+
+    if "mysterious letter" in inventory:
+        y_n = input("Do you want to read the letter? (yes/no)").lower().strip()
+        if y_n == "yes":
+            print("This mansion has been haunted for as long as I remember. "
+                  "I can't keep living like this, I will end it soon!"
+                  "\nIf you come here, don't go in the attic unprepared."
+                  "There's a katana hidden somewhere in this house."
+                  "\n1666 John Roberts")
+            continue
+        elif y_n == "no":
+            continue
+        else:
+            print("WTF DUDE!")
+
     #Victory condition 1
     if "key" in inventory and "cursed artifact" in inventory:
         print("You escaped from the house of horrors!")
-        print("You took the cursed artifact with you\nBE AWARE!")
+        print("You took the cursed artifact with you."
+              "\nBefore unlocking the door you hear something from the attic"
+              "\nGIVE THE CROSS BACK!!"
+              "\nOh no, that didn't sound too good"
+              "\nBE AWARE!")
+        time.sleep(4)
+        break
 
     #Loss condition and victory condition 2
     if "item" in rooms[currentRoom] and rooms[currentRoom]["item"].lower() == "monster":
@@ -138,10 +159,12 @@ while game:
             print("You reveal your blade and the monster shrieks")
             print("Fling! The blade cut the monsters head off")
             print("You defeated the monster, \nTHE HOUSE IS FREE, YOU WIN!")
+            time.sleep(4)
             break
         else:
             print("You have been ripped in half by the monster")
             print("You died! Better luck next time")
+            time.sleep(3)
             break
 
 
