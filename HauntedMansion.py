@@ -7,6 +7,20 @@ def clear_screen():
     else:
         os.system('clear')
 
+def show_map():
+    print("_________________________________")
+    print('''
+[Attic]
+   |
+  west
+   |
+[Stairs] -- east --> [Closet]
+   |
+  south
+   |
+[Basement] -- east --> [Kitchen] -- north --> [Hall]
+''')
+    print("__________________________________")
 
 def showinstructions():
     print(
@@ -16,6 +30,7 @@ __________
 Commands:|_____
 go [direction]|
 get [item] |
+show [map]|
 ------------    
         '''
     )
@@ -107,6 +122,10 @@ while game:
             print(f"You're now in the {currentRoom}!")
         else:
             print(f"You can't go {direction}")
+
+    if move[0] == "show":
+        if move[1] == "map":
+            show_map()
 
     #Victory condition 1
     if "key" in inventory and "cursed artifact" in inventory:
