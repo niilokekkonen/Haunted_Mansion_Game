@@ -71,9 +71,11 @@ while game_on:
     frog_age = int(input("Enter your frog's age"))
     frog_variant = str(input("Enter your frog's variant"))
 
-    Player = Frog(frog_name,frog_age,frog_variant)
-    if TypeError:
+    Player: Frog = Frog(frog_name,frog_age,frog_variant)
+
+    if not isinstance(Player.age, int):
         print("INVALID TYPE")
+        continue
 
     if Player:
         print("Success")
@@ -83,6 +85,7 @@ while game_on:
         print("Your adventure ends here")
         print("Report the error")
     enemy = froggy_One
+
     print(f"Your enemy is {enemy.name}")
     print("What a shock")
     time.sleep(0.2)
